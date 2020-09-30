@@ -7,8 +7,8 @@
 
 Tree::Tree(std::string file_location){
 	
-	Assignment assignment;
-	Task* next_task;
+	Assignment* assignment = new Assignment();
+	//Task* next_task;
 
 	std::string tag;
 	std::string duration;
@@ -29,22 +29,28 @@ Tree::Tree(std::string file_location){
 		conv_duration = std::stoi(duration);
 		conv_deadline = std::stoi(deadline);
 
-		next_task = new Task(tag, conv_duration, conv_deadline);
+		//next_task = new Task(tag, conv_duration, conv_deadline);
+		Task next_task;
+		next_task.tag      = tag;
+		next_task.duration = conv_duration;
+		next_task.deadline = conv_deadline;
 
-		assignment.add_task(next_task);
+		assignment->add_task(next_task);
 	}
 
 	//optional - try tasks in the sequence they were read
 	//and register their times as an assignment
 	//current_best_assignment = assignment;
 	//current_candidate.update_task_timing();
-	//current_candidate.calc_score();
+	assignment->calc_score();
 
 	//current_best_score = current_candidate.delay_score;
 	//current_best_assignment = current_candidate;
 
 	//registers these tasks as pending
-	
+
+
+
 	this->root = assignment;
 	current_best_score = INT_MAX;
 

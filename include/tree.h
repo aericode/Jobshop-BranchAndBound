@@ -5,7 +5,7 @@
 
 class Tree{
 public:
-	Assignment root;
+	Assignment* root;
 
 	Assignment* current_best_assignment;
 	int current_best_score;
