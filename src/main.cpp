@@ -8,6 +8,7 @@ int main(){
 
 	std::vector<Task> all_tasks;
 
+	/*
 	Task A ("Alberto",2,3);
 	Task B ("Bruna",4,7);
 	Task C ("Carmen",3,6);
@@ -19,17 +20,19 @@ int main(){
 	all_tasks.push_back(C);
 	all_tasks.push_back(D);
 	all_tasks.push_back(E);
-
+	*/
 	
-	Assignment assignment;
-	assignment.pending_tasks = all_tasks;
+	//Assignment assignment;
+	//assignment.pending_tasks = all_tasks;
 
-	Tree tree;
+	Tree* tree = new Tree("./input/default.csv");
 
-	tree.root = assignment;
-	tree.seek(&tree.root);
 
-	tree.current_best_assignment->show();
+
+	//tree.root = assignment;
+	tree->seek(&tree->root);
+
+	tree->current_best_assignment->show();
 
 
 }

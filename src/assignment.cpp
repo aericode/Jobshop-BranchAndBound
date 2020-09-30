@@ -16,8 +16,8 @@ void Assignment::calc_score(){
 	}
 }
 
-void Assignment::add_task(Task task){
-	Task* to_add = new Task(task);
+void Assignment::add_task(Task* to_add){
+	//Task* to_add = new Task(task);
 
 	if( task_list.size() == 0 ){
 		to_add->end_time = to_add->duration;
@@ -68,7 +68,7 @@ void Assignment::make_next_states(){
 		created_assig->task_list = this->task_list;
 
 		//adds one task from the pending list
-		created_assig->add_task(pending_tasks_cpy.back());
+		created_assig->add_task(&pending_tasks_cpy.back());
 		pending_tasks_cpy.pop_back();
 
 		//using tree order, it's possible to know which pending task should be missing on the new assignment

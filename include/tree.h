@@ -11,11 +11,10 @@ public:
 	int current_best_score;
 	
 	Tree();
+	Tree(std::string);
 
 	void initialize();
 	void seek(Assignment*);
-
-
 };
 
 
